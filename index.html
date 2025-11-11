@@ -61,3 +61,68 @@
 
         /* Button Glow Effect */
         .glow-btn {
+            position: relative;
+            transition: all 0.3s ease;
+            /* More subtle shadow for glass UI */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .glow-btn:hover {
+            transform: translateY(-2px);
+            /* Refined hover glow */
+            box-shadow: 0 6px 20px rgba(74, 0, 224, 0.4);
+        }
+
+        /* Card Styles - Apple Liquid Glass */
+        .workshop-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+            border: 1px solid rgba(142, 45, 226, 0.4);
+            /* Theme-colored border */
+            backdrop-filter: blur(15px);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .workshop-card:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            border-color: rgba(142, 45, 226, 0.7);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Accordion Styles */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.5s ease;
+            background: rgba(255, 255, 255, 0.03);
+            /* Subtle glass background */
+            border-bottom-right-radius: 8px;
+            border-bottom-left-radius: 8px;
+        }
+
+        .accordion-button.active+.accordion-content {
+            max-height: 2000px;
+            /* Large enough for content */
+            padding: 1.5rem;
+        }
+
+        .accordion-button .icon {
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-button.active .icon {
+            transform: rotate(180deg);
+        }
+
+        /* Fade-in Animation on Scroll */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
