@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کارگاه‌های هوش مصنوعی | AitoZed و فَب‌لَب دانشگاه شهید بهشتی</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font (Vazirmatn) for Persian -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Custom Styles & Animations */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Vazirmatn', 'Inter', sans-serif;
+            background-color: #0c0a18;
+            /* Deep dark purple-blue */
+            color: #e0e0e0;
+            overflow-x: hidden;
+            /* Prevent horizontal scroll */
+        }
+
+        /* Animated Gradient Background for Hero */
+        .hero-gradient {
+            background: linear-gradient(-45deg, #0c0a18, #1a1a3d, #4a00e0, #8e2de2);
+            background-size: 400% 400%;
+            animation: gradientBG 20s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Section Title Glow Effect */
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #8e2de2, #4a00e0);
+            margin: 10px auto 0;
+            border-radius: 2px;
+            animation: pulse-glow 3s infinite alternate;
+        }
+
+        /* Button Glow Effect */
+        .glow-btn {
