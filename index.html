@@ -637,3 +637,72 @@
                 </div>
             </div>
         </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-24 bg-gray-900 bg-opacity-50 border-t border-gray-800 py-8">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <div class="flex justify-center space-x-6 space-x-reverse mb-4">
+                <a href="http://aitozed.ir" target="_blank" class="hover:text-white transition">AitoZed</a>
+                <span>&bull;</span>
+                <a href="http://aerofablab.com" target="_blank" class="hover:text-white transition">FabLab SBU</a>
+            </div>
+            <p>&copy; ۲۰۲۵ (۱۳-۱۴) - تمامی حقوق برای AitoZed و فَب‌لَب دانشگاه شهید بهشتی محفوظ است.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for Accordions
+        document.querySelectorAll('.accordion-button').forEach(button => {
+            button.addEventListener('click', () => {
+                // Close other accordions in the same group
+                const group = button.closest('.space-y-4');
+                if (group) {
+                    group.querySelectorAll('.accordion-button').forEach(otherButton => {
+                        if (otherButton !== button && otherButton.classList.contains('active')) {
+                            otherButton.classList.remove('active');
+                        }
+                    });
+                }
+
+                // Toggle current accordion
+                button.classList.toggle('active');
+            });
+        });
+
+        // JavaScript for Fade-in on Scroll Animation
+        const faders = document.querySelectorAll('.fade-in');
+
+        const appearOptions = {
+            threshold: 0.1, // Trigger when 10% visible
+            rootMargin: "0px 0px -50px 0px" // Start 50px before it enters viewport
+        };
+
+        const appearOnScroll = new IntersectionObserver(function (entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.style.animation = `fadeIn 1s ${entry.target.classList.contains('stagger-1') ? '0.2s' : entry.target.classList.contains('stagger-2') ? '0.4s' : entry.target.classList.contains('stagger-3') ? '0.6s' : '0s'} ease-out forwards`;
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+
+        // Add animations to sections as well
+        document.querySelectorAll('section').forEach(section => {
+            if (!section.classList.contains('hero-gradient')) { // Don't animate hero
+                section.classList.add('fade-in'); // Add class to be observed
+                appearOnScroll.observe(section);
+            }
+        });
+    </script>
+
+</body>
+
+</html>
